@@ -10,8 +10,7 @@ HEIGHT_CM = os.getenv("HEIGHT_CM")
 AGE = os.getenv("AGE")
 
 # Describe Workout
-TODAYS_WORKOUT = "Lifted weights for 2 hours"
-
+todays_workout = input("What was today's workout? ")
 
 # Nutritionix API INFO
 load_dotenv(".env")
@@ -26,7 +25,7 @@ HEADERS_N = {
 }
 
 params = {
-    "query": TODAYS_WORKOUT,
+    "query": todays_workout,
     "gender": SEX,
     "weight_kg": WEIGHT_KG,
     "height_cm": HEIGHT_CM,
@@ -69,3 +68,5 @@ body = {
 # Write to Google sheets using Sheety API
 sheety_res = requests.post(url=SHEETY_ENDPOINT, headers=HEADERS_S, json=body)
 sheety_res.raise_for_status()
+
+print("Workout Recorded to Google Sheets!")
