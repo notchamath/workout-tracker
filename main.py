@@ -69,5 +69,3 @@ body = {
 # Write to Google sheets using Sheety API
 sheety_res = requests.post(url=SHEETY_ENDPOINT, headers=HEADERS_S, json=body)
 sheety_res.raise_for_status()
-
-
